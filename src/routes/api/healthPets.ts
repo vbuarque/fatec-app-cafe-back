@@ -3,37 +3,37 @@ import HttpStatusCodes from "http-status-codes";
 
 import Payload from "../../types/Payload";
 import Request from "../../types/Request";
-import Cats, { ICats, TCats } from "../../models/Cats";
+import Health, { IHealth, THealth } from "../../models/HealthPets";
 
 const router: Router = Router();
 
 router.post("/", async (req: Request, res: Response) => {
-    const { name, imageUrl, description, birthday } = req.body;
+    const { name, imageUrl, description, money } = req.body;
     try {
-      let cat: ICats = await Cats.findOne({ name });
+      let health: IHealth = await Health.findOne({ name });
 
-      if (cat) {
+      if (health) {
         return res.status(HttpStatusCodes.BAD_REQUEST).json({
           errors: [
             {
-              msg: "Cat already exists",
+              msg: "Health item already exists",
             },
           ],
         });
       }
-      const userFields: TCats = {
+      const userFields: THealth = {
         imageUrl,
         name,
         description,
-        birthday
+        money
       };
 
-      cat = new Cats(userFields);
+      health = new Health(userFields);
 
-      await cat.save();
-      res.json(cat);
+      await health.save();
+      res.json(health);
       const payload: Payload = {
-        userId: cat.id,
+        userId: health.id,
       };
     } catch (err) {
       console.error(err.message);
@@ -43,11 +43,11 @@ router.post("/", async (req: Request, res: Response) => {
 );
 
 router.get("/", async (req: Request, res: Response) => {
-  const { name, imageUrl, description, birthday } = req.body;
+  const { name, imageUrl, description, money } = req.body;
   try {
-    const cats: ICats[] = await Cats.find({});
+    const health: IHealth[] = await Health.find({});
 
-    res.json(cats);
+    res.json(health);
   } catch (err) {
     console.error(err.message);
     res.status(HttpStatusCodes.INTERNAL_SERVER_ERROR).send("Server Error");
@@ -55,10 +55,10 @@ router.get("/", async (req: Request, res: Response) => {
 }
 );
 
-router.delete("/:catId", async (req: Request, res: Response) => {
-  const { catId } = req.params;
+router.delete("/:healthId", async (req: Request, res: Response) => {
+  const { healthId } = req.params;
   try {
-    const deleted = await Cats.deleteOne({ _id: catId });
+    const deleted = await Health.deleteOne({ _id: healthId });
 
     if(deleted.deletedCount) {
       res.status(200)
@@ -76,9 +76,9 @@ router.delete("/:catId", async (req: Request, res: Response) => {
 }
 );
 
-router.patch("/:catId", async (req: Request, res: Response) => {
+router.patch("/:healthId", async (req: Request, res: Response) => {
   try {
-    const updated = await Cats.findOneAndUpdate({ _id: req.params.catId }, req.body, { new: true });
+    const updated = await Health.findOneAndUpdate({ _id: req.params.healthId }, req.body, { new: true });
     res.json(updated);
   } catch (err) {
     console.error(err.message);

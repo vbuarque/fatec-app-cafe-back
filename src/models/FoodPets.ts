@@ -1,15 +1,15 @@
 import { Document, model, Schema } from "mongoose";
 
-export type TCats = {
+export type TFood = {
   imageUrl: string;
   name: string;
   description: string;
-  birthday: Date;
+  money: string;
 };
 
-export interface ICats extends TCats, Document {}
+export interface IFood extends TFood, Document {}
 
-const catsSchema: Schema = new Schema({
+const foodSchema: Schema = new Schema({
   imageUrl: {
     type: String,
     required: true,
@@ -22,12 +22,11 @@ const catsSchema: Schema = new Schema({
   description: {
     type: String,
   },
-  birthday: {
-    type: Date,
-    default: Date.now,
+  money: {
+    type: String,
   },
 });
 
-const Cats = model<TCats>("Cats", catsSchema);
+const Food = model<TFood>("Food", foodSchema);
 
-export default Cats;
+export default Food;
