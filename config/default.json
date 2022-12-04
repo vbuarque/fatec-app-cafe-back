@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://miauBackUser:ZCU7UVxhjW0ennCX@miauback.rz7ivku.mongodb.net/?retryWrites=true&w=majority",
+  "jwtExpiration": 360000
+}
