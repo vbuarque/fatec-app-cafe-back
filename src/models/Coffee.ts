@@ -4,7 +4,7 @@ export type TCoffee = {
   imageUrl: string;
   name: string;
   description: string;
-  money: number;
+  money: string;
 };
 
 export interface ICoffee extends TCoffee, Document {}
@@ -22,8 +22,8 @@ const coffeeSchema: Schema = new Schema({
   description: {
     type: String,
   },
-  birthday: {
-    type: Number,
+  money: {
+    type: String,
   },
 });
 

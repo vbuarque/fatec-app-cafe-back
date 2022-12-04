@@ -4,7 +4,7 @@ export type TCandy = {
   imageUrl: string;
   name: string;
   description: string;
-  birthday: Date;
+  money: String;
 };
 
 export interface ICandy extends TCandy, Document {}
@@ -22,9 +22,8 @@ const candySchema: Schema = new Schema({
   description: {
     type: String,
   },
-  birthday: {
-    type: Date,
-    default: Date.now,
+  money: {
+    type: String,
   },
 });
 

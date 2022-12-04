@@ -19,7 +19,7 @@ app.get("/", (_req, res) => {
   res.send("API Running");
 });
 
-app.use("/api/coffee", coffee);
+app.use("/api/");
 
 const port = app.get("port");
 const server = app.listen(port, () =>
