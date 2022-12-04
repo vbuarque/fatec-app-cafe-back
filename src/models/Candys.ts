@@ -27,6 +27,6 @@ const candySchema: Schema = new Schema({
   },
 });
 
-const Candy = model<TCandy>("Coffee", candySchema);
+const Candy = model<TCandy>("Candy", candySchema);
 
 export default Candy;

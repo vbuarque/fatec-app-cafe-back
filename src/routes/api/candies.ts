@@ -8,7 +8,7 @@ import Candy, { ICandy, TCandy } from "../../models/Candys";
 const router: Router = Router();
 
 router.post("/", async (req: Request, res: Response) => {
-    const { name, imageUrl, description, birthday } = req.body;
+    const { name, imageUrl, description, money } = req.body;
     try {
       let candy: ICandy = await Candy.findOne({ name });
 
@@ -25,7 +25,7 @@ router.post("/", async (req: Request, res: Response) => {
         imageUrl,
         name,
         description,
-        birthday
+        money
       };
 
       candy = new Candy(userFields);
@@ -43,7 +43,7 @@ router.post("/", async (req: Request, res: Response) => {
 );
 
 router.get("/", async (req: Request, res: Response) => {
-  const { name, imageUrl, description, birthday } = req.body;
+  const { name, imageUrl, description, money } = req.body;
   try {
     const candy: ICandy[] = await Candy.find({});
 
