@@ -19,7 +19,9 @@ app.get("/", (_req, res) => {
   res.send("API Running");
 });
 
-app.use("/api/");
+app.use("/api/coffee", coffee);
+app.use("/api/cats", cats);
+app.use("/api/candies", candies);
 
 const port = app.get("port");
 const server = app.listen(port, () =>
