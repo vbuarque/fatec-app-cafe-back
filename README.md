@@ -1,16 +1,9 @@
-<h1 align="center"> 💰 Coins Master 💰 </h1>
+<h1 align="center"> 💰 Miau Café 💰 </h1>
 
-API para o projeto Coins Master (desenvolvido para a disciplina de Programação para Dispositivos Móveis na FATEC de São José dos Campos)
-- Abaixo é possível observar o modelo de dados em que o projeto foi baseado, onde existem  4 tabelas: equipes, usuários, avaliações e feedbacks.
-  
-<div align="center">
-
-![Modelo de Dados](https://user-images.githubusercontent.com/69374340/202428848-faf66d88-2fbd-45a8-b739-d9795643680d.png)
-</div>
+API para o projeto Miau Café (desenvolvido para a disciplina de Programação para Dispositivos Móveis na FATEC de São José dos Campos)
 
 ### :hammer_and_wrench: Tecnologias e ferramentas
-- TypeScript, NodeJS, Express, PostgreSQL, Docker, Insomnia
-
+- TypeScript, NodeJS, Express, Insomnia
 
 ## :gear: Como rodar
 Antes de começar, você vai precisar ter instalado o Node.js e o Yarn (confira um tutorial
@@ -19,7 +12,7 @@ e para clonar esse repositório o [Git](https://git-scm.com/) também!
 
 ```bash
 # Clone esse repositório
-$ git clone https://github.com/MariaGabrielaReis/coins-master-api.git
+$ git clone https://github.com/vbuarque/fatec-app-cafe-back
 
 # Instale as dependências do projeto, assim como suas tipagens
 $ yarn
